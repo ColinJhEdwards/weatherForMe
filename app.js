@@ -15,6 +15,7 @@ $(document).ready(function () {
     e.preventDefault();
     let cityName = $("#cityInput").val();
     getWeatherData(cityName);
+    createSearchHistory(cityName);
   });
 
   //functions
@@ -31,5 +32,12 @@ $(document).ready(function () {
       const lat = data.coord.lat;
       const lon = data.coord.lon;
     });
+  }
+
+  function createSearchHistory(cityName) {
+    const newBtn = $("<button>");
+    newBtn.attr("id", "citySearched");
+    newBtn.text(cityName);
+    $(".searchHistory").append(newBtn);
   }
 });
