@@ -19,6 +19,7 @@ html {
   font-size: 3rem;
   color: white;
   background: rgb(70, 67, 67);
+  text-shadow: 2px 2px black;
 }
 
 .home {

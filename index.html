@@ -23,8 +23,8 @@
       <div class="searchCity">
         <form action="">
           <h2>Search for a City:</h2>
-          <input type="text" />
-          <button><i class="fas fa-search"></i></button>
+          <input id="cityInput" type="text" />
+          <button id="searchBtn"><i class="fas fa-search"></i></button>
         </form>
         <div class="searchHistory">
           <button id="citySearched">CityName</button>
@@ -37,11 +37,11 @@
       </div>
       <div class="weather">
         <div class="stats">
-          <h1>Seattle (0/29/2021)</h1>
-          <p>Temp</p>
-          <p>Humidity</p>
-          <p>Wind Speed</p>
-          <p>UV index</p>
+          <h1 id="location">City</h1>
+          <p id="currentTemp">Temp:</p>
+          <p id="currentHumi">Humidity:</p>
+          <p id="currentWS">Wind Speed:</p>
+          <p id="currentUV">UV index:</p>
         </div>
         <h1 id="meh">5-Day Forecast:</h1>
         <div class="forecast">
@@ -83,6 +83,7 @@
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
