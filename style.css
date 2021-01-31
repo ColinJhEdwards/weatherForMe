@@ -68,7 +68,7 @@ html {
   margin-top: 2rem;
 }
 
-#citySearched {
+.citySearched {
   font-size: 2rem;
   padding: 1rem;
   width: 95%;
@@ -80,7 +80,7 @@ html {
   transition: 0.5s all ease;
 }
 
-#citySearched:hover {
+.citySearched:hover {
   background: lightgray;
 }
 

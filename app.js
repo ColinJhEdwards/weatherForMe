@@ -7,7 +7,7 @@ $(document).ready(function () {
     return `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
   }
   function requestUvIndex(lat, lon) {
-    return `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
+    return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
   }
 
   //event listeners
@@ -16,6 +16,7 @@ $(document).ready(function () {
     let cityName = $("#cityInput").val();
     getWeatherData(cityName);
     createSearchHistory(cityName);
+    $("#cityInput").val("");
   });
 
   //functions
@@ -31,13 +32,24 @@ $(document).ready(function () {
       $("#currentWS").text("Wind Speed: " + data.wind.speed);
       const lat = data.coord.lat;
       const lon = data.coord.lon;
+      getUvIndex(lat, lon);
+    });
+  }
+
+  function getUvIndex(lat, lon) {
+    $.ajax({
+      url: requestUvIndex(lat, lon),
+      method: "GET",
+    }).then(function (data) {
+      console.log(data);
+      $("#currentUV").text("UV Index: " + data.current.uvi);
     });
   }
 
   function createSearchHistory(cityName) {
     const newBtn = $("<button>");
-    newBtn.attr("id", "citySearched");
+    newBtn.addClass("citySearched");
     newBtn.text(cityName);
-    $(".searchHistory").append(newBtn);
+    $(".searchHistory").prepend(newBtn);
   }
 });
