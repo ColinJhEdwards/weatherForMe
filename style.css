@@ -139,3 +139,7 @@ p {
 .forecastCard h3 {
   margin-left: 1rem;
 }
+
+.hide {
+  display: none;
+}
