@@ -140,6 +140,12 @@ p {
   margin-left: 1rem;
 }
 
+.fa-cloud-rain,
+.fa-cloud,
+.fa-sun {
+  font-size: 5rem;
+}
+
 .hide {
   display: none;
 }

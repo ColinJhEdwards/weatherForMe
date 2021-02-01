@@ -70,8 +70,16 @@ $(document).ready(function () {
         card[4].children[0].innerText = data.list[30].dt_txt.split(" ")[0];
         let view = data.list[i].weather[0].main;
         console.log(view);
-        if (view == "Rain") {
-          card[i].children[1].classList.add("fas fa-cloud-rain");
+        console.log(card[i].children[1]);
+        if (view === "Rain") {
+          card[i].children[1].classList.add("fa-cloud-rain");
+          card[i].children[1].classList.add("fas");
+        } else if (view === "Clouds") {
+          card[i].children[1].classList.add("fa-cloud");
+          card[i].children[1].classList.add("fas");
+        } else if (view === "Clear") {
+          card[i].children[1].classList.add("fa-sun");
+          card[i].children[1].classList.add("fas");
         }
       }
     });
