@@ -72,12 +72,15 @@ $(document).ready(function () {
         console.log(view);
         console.log(card[i].children[1]);
         if (view === "Rain") {
+          card[i].children[1].classList.remove("fa-cloud", "fa-sun");
           card[i].children[1].classList.add("fa-cloud-rain");
           card[i].children[1].classList.add("fas");
         } else if (view === "Clouds") {
+          card[i].children[1].classList.remove("fa-cloud-rain", "fa-sun");
           card[i].children[1].classList.add("fa-cloud");
           card[i].children[1].classList.add("fas");
         } else if (view === "Clear") {
+          card[i].children[1].classList.remove("fa-cloud-rain", "fa-cloud");
           card[i].children[1].classList.add("fa-sun");
           card[i].children[1].classList.add("fas");
         }
