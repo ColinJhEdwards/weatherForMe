@@ -151,7 +151,6 @@ $(document).ready(function () {
       //Local Storage
 
       let citiesArray = JSON.parse(localStorage.getItem("nameOfCity")) || [];
-      console.log(citiesArray);
       citiesArray.push(cityName);
       localStorage.setItem("nameOfCity", JSON.stringify(citiesArray));
     }
@@ -159,7 +158,6 @@ $(document).ready(function () {
 
   function displayStorage() {
     let citiesArray = JSON.parse(localStorage.getItem("nameOfCity")) || [];
-    console.log(citiesArray);
     for (let i = 0; i < citiesArray.length; i++) {
       const newBtn = $("<button>");
       newBtn.addClass("citySearched");
