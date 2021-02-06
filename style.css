@@ -89,6 +89,13 @@ html {
 .weather {
   min-height: 80vh;
   margin: 3rem;
+  position: relative;
+}
+
+#currentSky {
+  position: absolute;
+  top: 5rem;
+  left: 80rem;
 }
 
 .stats {

@@ -47,11 +47,47 @@ $(document).ready(function () {
       url: getRequestUrl(cityName),
       method: "GET",
     }).then(function (data) {
-      // console.log(data);
+      console.log(data);
       $("#location").text(data.name + " " + currentDay);
       $("#currentTemp").text("Temp: " + data.main.temp + " °F");
       $("#currentHumi").text("Humidity: " + data.main.humidity);
       $("#currentWS").text("Wind Speed: " + data.wind.speed);
+      const currentSkyDisplay = document.querySelector("#currentSky");
+      console.log(currentSkyDisplay);
+      let sky = data.weather[0].main;
+      if (sky === "Rain") {
+        currentSkyDisplay.children[0].classList.remove(
+          "fa-cloud",
+          "fa-sun",
+          "fa-snowflake"
+        );
+        currentSkyDisplay.children[0].classList.add("fa-cloud-rain");
+        currentSkyDisplay.children[0].classList.add("fas");
+      } else if (sky === "Clouds") {
+        currentSkyDisplay.children[0].classList.remove(
+          "fa-cloud-rain",
+          "fa-sun",
+          "fa-snowflake"
+        );
+        currentSkyDisplay.children[0].classList.add("fa-cloud");
+        currentSkyDisplay.children[0].classList.add("fas");
+      } else if (sky === "Clear") {
+        currentSkyDisplay.children[0].classList.remove(
+          "fa-cloud-rain",
+          "fa-cloud",
+          "fa-snowflake"
+        );
+        currentSkyDisplay.children[0].classList.add("fa-sun");
+        currentSkyDisplay.children[0].classList.add("fas");
+      } else if (sky === "Snow") {
+        currentSkyDisplay.children[0].classList.remove(
+          "fa-cloud-rain",
+          "fa-cloud",
+          "fa-sun"
+        );
+        currentSkyDisplay.children[0].classList.add("fa-snowflake");
+        currentSkyDisplay.children[0].classList.add("fas");
+      }
       const lat = data.coord.lat;
       const lon = data.coord.lon;
       getUvIndex(lat, lon);
@@ -79,11 +115,7 @@ $(document).ready(function () {
       for (let i = 0; i < 5; i++) {
         card[i].children[2].innerText = "Temp: " + data.daily[i].temp.day;
         card[i].children[3].innerText = "Humidity: " + data.daily[i].humidity;
-        // card[0].children[0].innerText = data.list[0].dt_txt.split(" ")[0];
-        // card[1].children[0].innerText = data.list[6].dt_txt.split(" ")[0];
-        // card[2].children[0].innerText = data.list[14].dt_txt.split(" ")[0];
-        // card[3].children[0].innerText = data.list[22].dt_txt.split(" ")[0];
-        // card[4].children[0].innerText = data.list[30].dt_txt.split(" ")[0];
+
         let view = data.daily[i].weather[0].main;
         if (view === "Rain") {
           card[i].children[1].classList.remove(
@@ -127,7 +159,7 @@ $(document).ready(function () {
       url: requestForecastDates(cityName),
       method: "GET",
     }).then(function (data) {
-      console.log(data);
+      // console.log(data);
       const card = $(".forecastCard");
       card[0].children[0].innerText = data.list[0].dt_txt.split(" ")[0];
       card[1].children[0].innerText = data.list[7].dt_txt.split(" ")[0];
