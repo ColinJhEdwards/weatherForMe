@@ -36,7 +36,8 @@ $(document).ready(function () {
     getForecastDates(cityName);
   });
 
-  $("#clearBtn").on("click", function () {
+  $("#clearBtn").on("click", function (e) {
+    e.preventDefault();
     localStorage.clear();
     $(".searchHistory").empty();
   });
