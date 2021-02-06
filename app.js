@@ -4,10 +4,10 @@ $(document).ready(function () {
   const currentDay = moment().format("L");
 
   function getRequestUrl(cityName) {
-    return `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
+    return `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
   }
   function requestUvIndex(lat, lon) {
-    return `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
+    return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=b5c842f082af7c42b54113072b2a2dc6&units=imperial`;
   }
 
   function requestForecast(lat, lon) {
