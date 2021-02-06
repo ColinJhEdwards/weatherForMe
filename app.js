@@ -29,6 +29,18 @@ $(document).ready(function () {
     $("#cityInput").val("");
   });
 
+  $(document).on("click", ".citySearched", function () {
+    const cityName = $(this).text();
+    $(".forecast").removeClass("hide");
+    getWeatherData(cityName);
+    getForecastDates(cityName);
+  });
+
+  $("#clearBtn").on("click", function () {
+    localStorage.clear();
+    $(".searchHistory").empty();
+  });
+
   //functions
   function getWeatherData(cityName) {
     $.ajax({
